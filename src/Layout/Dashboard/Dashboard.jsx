@@ -18,7 +18,7 @@ const Dashboard = () => {
   const [isHost,isLoading,refetch] = useHost();
   const makeHost = () => {
     axios
-      .put(`http://localhost:5000/setHost/${user?.email}`)
+      .put(`https://phototune-server-side-3tfl7h8no-kabi-r.vercel.app/setHost/${user?.email}`)
       .then((res) => {
         refetch()
         if(res.data.modifiedCount>0){

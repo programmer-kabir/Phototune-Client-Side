@@ -7,7 +7,7 @@ const useAdmin = () => {
     const [isAdmin,setAdmin] = useState('');
     const [isLoading2,setLoading] = useState(true);
     useEffect(()=>{
-        axios.get(`http://localhost:5000/isAdmin/${user?.email}`)
+        axios.get(`https://phototune-server-side-3tfl7h8no-kabi-r.vercel.app/isAdmin/${user?.email}`)
         .then(res=>{
             setLoading(false)
             setAdmin(res.data.admin)

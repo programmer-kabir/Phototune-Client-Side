@@ -22,7 +22,7 @@ const AddPhotography = () => {
           const imageUrl = res.data.data.display_url;
           const {PhotographyName,AuthorName,AuthorEmail,price,Stock} = data;
           const PhotoInfo = { photographyName:PhotographyName,authorName:AuthorName,image:imageUrl,price:parseInt(price),publishedDate:date,availableStock:parseInt(Stock),authorEmail:AuthorEmail,status:'Pending'};
-          axios.post(`http://localhost:5000/hostPhotography`, PhotoInfo)
+          axios.post(`https://phototune-server-side-3tfl7h8no-kabi-r.vercel.app/hostPhotography`, PhotoInfo)
           .then(res=>{
             if(res.data.insertedId){
                 Swal.fire({

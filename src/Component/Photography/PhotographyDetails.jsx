@@ -16,7 +16,7 @@ const PhotographyDetails = () => {
   const [photography] = usePhotography()
   const [singleData, setSingleData] = useState({});
   useEffect(() => {
-    axios.get(`http://localhost:5000/singlePhotography/${id}`).then((res) => {
+    axios.get(`https://phototune-server-side-3tfl7h8no-kabi-r.vercel.app/singlePhotography/${id}`).then((res) => {
       setSingleData(res.data);
     });
   }, [id]);

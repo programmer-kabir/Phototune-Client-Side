@@ -8,7 +8,7 @@ import { UserContext } from "../../../Provider/Authprovider";
 import { updateProfile } from "firebase/auth";
 const Register = () => {
   const { createNewUser, googleLogin } = useContext(UserContext);
-  const naviget = useNavigate();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -39,7 +39,7 @@ const Register = () => {
               photoURL: imageUrl,
             });
             const userInfo = { name, email, imageUrl };
-            fetch(`http://localhost:5000/users`, {
+            fetch(`https://phototune-server-side-3tfl7h8no-kabi-r.vercel.app/users`, {
               method: "POST",
               headers: {
                 "content-type": "application/json",
@@ -48,7 +48,7 @@ const Register = () => {
             })
               .then((res) => res.json())
               .then(() => {
-                naviget('/')
+                navigate('/')
                 reset();
               })
               .catch((err) => {
@@ -70,7 +70,7 @@ const Register = () => {
           email: user?.email,
           imageUrl: user.photoURL,
         };
-        fetch(`http://localhost:5000/users/${user?.email}`, {
+        fetch(`https://phototune-server-side-3tfl7h8no-kabi-r.vercel.app/users/${user?.email}`, {
           method: "PUT",
           headers: {
             "content-type": "application/json",
@@ -88,7 +88,7 @@ const Register = () => {
               timer: 1500,
             });
             reset();
-            naviget("/");
+            navigate("/");
           })
           .catch((err) => {
             toast.error(err.message);

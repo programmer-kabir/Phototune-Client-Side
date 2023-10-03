@@ -10,7 +10,7 @@ const Login = () => {
   const [hide,setHide] = useState(false)
   const { login,googleLogin } = useContext(UserContext);
   const location = useLocation();
-  const naviget = useNavigate();
+  const navigate = useNavigate();
   const from = location?.state?.from.pathname || "/";
   const {
     register,
@@ -32,7 +32,7 @@ const Login = () => {
           timer: 1500,
         });
         reset();
-        naviget(from, { replace: true })
+        navigate(from, { replace: true })
       })
       .catch((err) => {
         (err.message);
@@ -44,7 +44,7 @@ const Login = () => {
     .then((result) => {
       const user = result.user;
       const userInfo = {name:user.displayName,email:user?.email,imageUrl:user.photoURL}
-      fetch(`http://localhost:5000/users`,{
+      fetch(`https://phototune-server-side-3tfl7h8no-kabi-r.vercel.app/users`,{
         method:"POST",
         headers:{
           'content-type': 'application/json'
@@ -62,7 +62,7 @@ const Login = () => {
             timer: 1500
           })
           reset()
-          naviget(from, { replace: true })
+          navigate(from, { replace: true })
         
       })
       .catch(err => {

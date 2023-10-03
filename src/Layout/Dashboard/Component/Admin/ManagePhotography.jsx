@@ -20,7 +20,7 @@ const ManagePhotography = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:5000/deleteSinglePhotography/${id}`)
+          .delete(`https://phototune-server-side-3tfl7h8no-kabi-r.vercel.app/deleteSinglePhotography/${id}`)
           .then((res) => {
             refetch()
             if (res.data.deletedCount>0) {
@@ -39,7 +39,7 @@ const ManagePhotography = () => {
   };
   const approved = (id)=>{
     axios
-      .put(`http://localhost:5000/approved/${id}`)
+      .put(`https://phototune-server-side-3tfl7h8no-kabi-r.vercel.app/approved/${id}`)
       .then((res) => {
         refetch()
         if(res.data.modifiedCount>0){
